@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM omriiluz/spark-base:1.2
 MAINTAINER Honglin Feng <hfeng@tutum.co> 
 
 # Install packages
