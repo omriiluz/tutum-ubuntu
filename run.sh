@@ -23,4 +23,12 @@ if [ ! -f /.root_pw_set ]; then
 	/set_root_pw.sh
 fi
 
+source /root/spark_files/configure_spark.sh
+
+IP=$(ip -o -4 addr list eth0 | perl -n -e 'if (m{inet\s([\d\.]+)\/\d+\s}xms) { print $1 }')
+echo "IP=$IP"
+
+echo "preparing Spark"
+prepare_spark $1
+
 exec /usr/sbin/sshd -D
